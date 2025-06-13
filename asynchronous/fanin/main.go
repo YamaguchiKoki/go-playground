@@ -38,15 +38,12 @@ func main() {
 	done := make(chan struct{})
 	defer close(done)
 
-	// 3つの入力チャネルを作成
 	ch1 := make(chan int)
 	ch2 := make(chan int)
 	ch3 := make(chan int)
 
-	// fanInで統合
 	merged := fanIn(done, ch1, ch2, ch3)
 
-	// 結果を収集するgoroutine
 	results := make([]int, 0)
 	var resultMutex sync.Mutex
 
