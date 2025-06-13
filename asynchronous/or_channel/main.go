@@ -5,7 +5,6 @@ import (
 	"time"
 )
 
-
 // case数はコンパイル時に決定されないといけないが、可変個のチャネルをまとめたい→分割統治
 func or (channels ...<-chan any) <-chan any {
 	// base case
